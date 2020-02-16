@@ -88,3 +88,10 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# Keys
+#
+# Ignores Keys.plist to secure api keys, use Keys.template.plist as
+# template to create one with your own keys
+
+Keys.plist

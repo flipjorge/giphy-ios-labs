@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2713926823F9D05B0087F99B /* Keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2713926623F9D05B0087F99B /* Keys.template.plist */; };
+		2713926923F9D05B0087F99B /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2713926723F9D05B0087F99B /* Keys.plist */; };
 		27D83BB623F8ABEA00DC0FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB523F8ABEA00DC0FC7 /* AppDelegate.swift */; };
 		27D83BB823F8ABEA00DC0FC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB723F8ABEA00DC0FC7 /* SceneDelegate.swift */; };
 		27D83BBA23F8ABEA00DC0FC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB923F8ABEA00DC0FC7 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2713926623F9D05B0087F99B /* Keys.template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.template.plist; sourceTree = "<group>"; };
+		2713926723F9D05B0087F99B /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		27D83BB223F8ABEA00DC0FC7 /* giphy-ios-labs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "giphy-ios-labs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D83BB523F8ABEA00DC0FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D83BB723F8ABEA00DC0FC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				27D83BBE23F8ABEE00DC0FC7 /* Assets.xcassets */,
 				27D83BC023F8ABEE00DC0FC7 /* LaunchScreen.storyboard */,
 				27D83BC323F8ABEE00DC0FC7 /* Info.plist */,
+				2713926723F9D05B0087F99B /* Keys.plist */,
+				2713926623F9D05B0087F99B /* Keys.template.plist */,
 			);
 			path = "giphy-ios-labs";
 			sourceTree = "<group>";
@@ -128,6 +134,8 @@
 				27D83BC223F8ABEE00DC0FC7 /* LaunchScreen.storyboard in Resources */,
 				27D83BBF23F8ABEE00DC0FC7 /* Assets.xcassets in Resources */,
 				27D83BBD23F8ABEA00DC0FC7 /* Main.storyboard in Resources */,
+				2713926823F9D05B0087F99B /* Keys.template.plist in Resources */,
+				2713926923F9D05B0087F99B /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
