@@ -55,8 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //parse data
             do
             {
-                let jsonData = try JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+                let decoder = JSONDecoder()
+                let giphyRandomData = try decoder.decode(GiphyRandom.self, from: data!)
+                
+                print (giphyRandomData.data.images.downsized_still.url)
+                
             } catch {
                 print("Error parsing data: \(error.localizedDescription)")
             }
