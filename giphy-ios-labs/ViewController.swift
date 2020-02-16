@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +28,7 @@ class ViewController: UIViewController {
             return
         }
         
-        //Request random gif
+        // Request random gif
         let urlSession = URLSession.shared
         let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=\(giphyKey)&tag=&rating=G")
         urlSession.dataTask(with: url!) { data, response, error in
@@ -51,15 +53,23 @@ class ViewController: UIViewController {
             }
             
             //parse data
-            do
-            {
-                let decoder = JSONDecoder()
-                let giphyRandomData = try decoder.decode(GiphyRandom.self, from: data!)
+            let decoder = JSONDecoder()
+            
+            guard let giphyRandomData = try? decoder.decode(GiphyRandom.self, from: data!) else {
+                print("Error parsing data")
+                return
+            }
+            
+            //load and show image
+            DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+                guard let imageData = try? Data(contentsOf: URL(string: giphyRandomData.data.images.downsized_still.url)!) else {
+                    print ("Some error getting image data")
+                    return
+                }
                 
-                print (giphyRandomData.data.images.downsized_still.url)
-                
-            } catch {
-                print("Error parsing data: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self?.imageView.image = UIImage(data: imageData)
+                }
             }
             
         }.resume()
