@@ -8,29 +8,41 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    @IBOutlet var imageView: UIImageView!
-    
-    override func viewDidLoad() {
+class ViewController: UIViewController
+{
+    //MARK: Lifecycle
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
-        // Getting GIPHY Key
-        guard let keysPath = Bundle.main.path(forResource: "Keys", ofType: "plist") else {
-            print("Keys.plist file with api keys is required in order to run the app")
+        //getting GIPHY Key
+        do {
+            _giphyKey = try Keys.shared.getKey(for: .giphy)
+        } catch KeysError.NotFound {
+            print("Giphy Key not found")
+            return
+        } catch {
+            print("Unknown error getting giphy key")
             return
         }
         
-        let keysDictionary = NSDictionary(contentsOf: URL(fileURLWithPath: keysPath)) as! Dictionary<String, AnyObject>
-        
-        guard let giphyKey = keysDictionary["GIPHY"] else {
-            print("Can't find the GIPHY key")
-            return
-        }
-        
-        // Request random gif
+        //refresh
+        _refreshImage(withKey: _giphyKey!)
+    }
+
+    
+    //MARK: Giphy Key
+    private var _giphyKey : String?
+    
+    
+    //MARK: Image
+    @IBOutlet var imageView: UIImageView!
+    
+    private func _refreshImage(withKey key : String) -> Void
+    {
+        //request random gif
         let urlSession = URLSession.shared
-        let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=\(giphyKey)&tag=&rating=G")
+        let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=\(key)&tag=&rating=G")
         urlSession.dataTask(with: url!) { data, response, error in
             
             //check error
@@ -41,8 +53,7 @@ class ViewController: UIViewController {
             
             //check response
             guard let httpResponse = response as? HTTPURLResponse,
-                httpResponse.statusCode == 200 else
-            {
+                httpResponse.statusCode == 200 else {
                 print("Status code for respose != 200")
                 return
             }
@@ -74,7 +85,4 @@ class ViewController: UIViewController {
             
         }.resume()
     }
-
-
 }
-
