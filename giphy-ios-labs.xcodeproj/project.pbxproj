@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		2713926923F9D05B0087F99B /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2713926723F9D05B0087F99B /* Keys.plist */; };
 		2713926D23F9F9930087F99B /* GiphyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713926C23F9F9930087F99B /* GiphyModel.swift */; };
 		2713927023FA0EA70087F99B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713926F23FA0EA70087F99B /* Keys.swift */; };
+		2745464623FA370D0000FB86 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 2745464523FA370D0000FB86 /* SwiftyGif */; };
 		27D83BB623F8ABEA00DC0FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB523F8ABEA00DC0FC7 /* AppDelegate.swift */; };
 		27D83BB823F8ABEA00DC0FC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB723F8ABEA00DC0FC7 /* SceneDelegate.swift */; };
 		27D83BBA23F8ABEA00DC0FC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB923F8ABEA00DC0FC7 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2745464623FA370D0000FB86 /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +105,9 @@
 			dependencies = (
 			);
 			name = "giphy-ios-labs";
+			packageProductDependencies = (
+				2745464523FA370D0000FB86 /* SwiftyGif */,
+			);
 			productName = "giphy-ios-labs";
 			productReference = 27D83BB223F8ABEA00DC0FC7 /* giphy-ios-labs.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +136,9 @@
 				Base,
 			);
 			mainGroup = 27D83BA923F8ABEA00DC0FC7;
+			packageReferences = (
+				2745464423FA370D0000FB86 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+			);
 			productRefGroup = 27D83BB323F8ABEA00DC0FC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -364,6 +372,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2745464423FA370D0000FB86 /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2745464523FA370D0000FB86 /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2745464423FA370D0000FB86 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27D83BAA23F8ABEA00DC0FC7 /* Project object */;
 }
