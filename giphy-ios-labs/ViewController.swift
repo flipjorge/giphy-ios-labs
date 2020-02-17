@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyGif
 
 class ViewController: UIViewController
 {
@@ -73,13 +74,18 @@ class ViewController: UIViewController
             
             //load and show image
             DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-                guard let imageData = try? Data(contentsOf: URL(string: giphyRandomData.data.images.downsized_still.url)!) else {
+                guard let imageData = try? Data(contentsOf: URL(string: giphyRandomData.data.images.downsized_large.url)!) else {
                     print ("Some error getting image data")
                     return
                 }
                 
                 DispatchQueue.main.async {
-                    self?.imageView.image = UIImage(data: imageData)
+                    guard let image = try? UIImage(gifData:imageData) else {
+                        print("Unable to create UIImage from imageData")
+                        return
+                    }
+                    
+                    self?.imageView.setGifImage(image)
                 }
             }
             
