@@ -85,4 +85,16 @@ class ViewController: UIViewController
             
         }.resume()
     }
+    
+    
+    //MARK: Button
+    @IBAction func _buttonTouchedUpInside()
+    {
+        guard let key = _giphyKey else {
+            print("Giphy Key is required")
+            return
+        }
+        
+        _refreshImage(withKey: key)
+    }
 }
