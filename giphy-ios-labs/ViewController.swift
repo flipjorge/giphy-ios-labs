@@ -93,7 +93,7 @@ class ViewController: UIViewController
     }
     
     
-    //MARK: Button
+    //MARK: Refresh Button
     @IBAction func _buttonTouchedUpInside()
     {
         guard let key = _giphyKey else {
@@ -102,5 +102,12 @@ class ViewController: UIViewController
         }
         
         _refreshImage(withKey: key)
+    }
+    
+    
+    //MARK: Tags Button
+    @IBAction func _tagsButtonTouchedUpInside()
+    {
+        //open tags modal view
     }
 }
