@@ -11,17 +11,33 @@ import UIKit
 class TagsViewController : UIViewController
 {
     //MARK: Lifecycle
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
+        tagsTextField.delegate = self
         tagsTextField?.text = tags ?? ""
     }
+    
     
     //MARK: Tags
     @IBOutlet weak var tagsTextField: UITextField!
     
     var tags:String?
     
+    
     //MARK: Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         tags = tagsTextField?.text
+    }
+}
+
+
+//MARK: - TextFieldDelegate
+extension TagsViewController : UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
     }
 }
