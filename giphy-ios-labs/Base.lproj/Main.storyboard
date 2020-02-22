@@ -68,8 +68,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Tags" id="Y6T-j9-hl2">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i2I-x7-nVe"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cRq-IH-bA1"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i2I-x7-nVe">
+                                            <connections>
+                                                <action selector="cancel:" destination="C5A-IS-Leq" id="pcD-dK-UEk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cRq-IH-bA1">
+                                            <connections>
+                                                <action selector="done:" destination="C5A-IS-Leq" id="oAW-5F-ePL"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

@@ -10,7 +10,18 @@ import UIKit
 
 class TagsViewController : UIViewController
 {
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
+        //
+    }
+    
+    @IBAction func cancel(_ sender: Any)
+    {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func done(_ sender: Any)
+    {
         //
     }
 }
