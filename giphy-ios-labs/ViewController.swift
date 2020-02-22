@@ -122,4 +122,14 @@ class ViewController: UIViewController
         tags = tagsViewController.tags
     }
     
+    
+    //MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tagsViewController = segue.destination as? TagsViewController else {
+            return
+        }
+        
+        tagsViewController.tags = tags
+    }
+    
 }
