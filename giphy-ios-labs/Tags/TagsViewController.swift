@@ -10,18 +10,11 @@ import UIKit
 
 class TagsViewController : UIViewController
 {
-    override func viewDidLoad()
-    {
-        //
-    }
+    //MARK: Tags
+    @IBOutlet weak var tagsTextField: UITextField!
     
-    @IBAction func cancel(_ sender: Any)
+    var tags:String
     {
-        dismiss(animated: true)
-    }
-    
-    @IBAction func done(_ sender: Any)
-    {
-        //
+        return tagsTextField?.text ?? ""
     }
 }

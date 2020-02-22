@@ -37,7 +37,6 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
-                                    <action selector="_tagsButtonTouchedUpInside" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxX-iT-zYH"/>
                                     <segue destination="C5A-IS-Leq" kind="show" id="fbb-PI-mxR">
                                         <segue key="commit" inheritsFrom="parent" id="I92-bf-rp0"/>
                                         <segue key="preview" inheritsFrom="commit" id="ced-Yo-P2g"/>
@@ -70,12 +69,12 @@
                                     <navigationItem title="Tags" id="Y6T-j9-hl2">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i2I-x7-nVe">
                                             <connections>
-                                                <action selector="cancel:" destination="C5A-IS-Leq" id="pcD-dK-UEk"/>
+                                                <segue destination="WKN-wt-aP2" kind="unwind" identifier="tagsCancel" unwindAction="tagsCancel:" id="MSZ-Fv-mYF"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="cRq-IH-bA1">
                                             <connections>
-                                                <action selector="done:" destination="C5A-IS-Leq" id="oAW-5F-ePL"/>
+                                                <segue destination="WKN-wt-aP2" kind="unwind" identifier="tagsDone" unwindAction="tagsDone:" id="VyG-nm-gCl"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -99,8 +98,12 @@
                         <viewLayoutGuide key="safeArea" id="TKC-Dv-0QY"/>
                     </view>
                     <navigationItem key="navigationItem" id="AfB-T2-kY3"/>
+                    <connections>
+                        <outlet property="tagsTextField" destination="qK3-Sv-5sd" id="j7J-2p-bWf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEj-I1-JBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="WKN-wt-aP2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="988" y="122"/>
         </scene>

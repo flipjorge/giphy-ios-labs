@@ -105,9 +105,21 @@ class ViewController: UIViewController
     }
     
     
-    //MARK: Tags Button
-    @IBAction func _tagsButtonTouchedUpInside()
+    //MARK: Tags
+    var tags:String?
+    
+    @IBAction func tagsCancel(_ segue: UIStoryboardSegue)
     {
-        //open tags modal view
+        //
     }
+    
+    @IBAction func tagsDone(_ segue: UIStoryboardSegue)
+    {
+        guard let tagsViewController = segue.source as? TagsViewController else {
+            return
+        }
+        
+        tags = tagsViewController.tags
+    }
+    
 }
