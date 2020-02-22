@@ -38,6 +38,7 @@ extension TagsViewController : UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
+        performSegue(withIdentifier: "tagsDone", sender: self)
         return true
     }
 }
