@@ -38,6 +38,10 @@
                                 </state>
                                 <connections>
                                     <action selector="_tagsButtonTouchedUpInside" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxX-iT-zYH"/>
+                                    <segue destination="C5A-IS-Leq" kind="show" id="fbb-PI-mxR">
+                                        <segue key="commit" inheritsFrom="parent" id="I92-bf-rp0"/>
+                                        <segue key="preview" inheritsFrom="commit" id="ced-Yo-P2g"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,12 +61,11 @@
             <objects>
                 <viewController id="C5A-IS-Leq" customClass="TagsViewController" customModule="giphy_ios_labs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="itz-dW-Pse">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuy-ha-zMY">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuy-ha-zMY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Tags" id="Y6T-j9-hl2">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i2I-x7-nVe"/>
@@ -70,19 +73,24 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qK3-Sv-5sd">
-                                <rect key="frame" x="0.0" y="110" width="414" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qK3-Sv-5sd">
+                                <rect key="frame" x="20" y="116" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="qK3-Sv-5sd" firstAttribute="leading" secondItem="TKC-Dv-0QY" secondAttribute="leading" id="cxs-Nw-fWu"/>
-                            <constraint firstItem="TKC-Dv-0QY" firstAttribute="trailing" secondItem="qK3-Sv-5sd" secondAttribute="trailing" id="mvD-kh-i1d"/>
+                            <constraint firstItem="zuy-ha-zMY" firstAttribute="trailing" secondItem="TKC-Dv-0QY" secondAttribute="trailing" id="K7N-dG-ljd"/>
+                            <constraint firstItem="qK3-Sv-5sd" firstAttribute="leading" secondItem="TKC-Dv-0QY" secondAttribute="leading" constant="20" id="cxs-Nw-fWu"/>
+                            <constraint firstItem="qK3-Sv-5sd" firstAttribute="top" secondItem="zuy-ha-zMY" secondAttribute="bottom" constant="60" id="fOU-bX-3bf"/>
+                            <constraint firstItem="TKC-Dv-0QY" firstAttribute="trailing" secondItem="qK3-Sv-5sd" secondAttribute="trailing" constant="20" id="mvD-kh-i1d"/>
+                            <constraint firstItem="zuy-ha-zMY" firstAttribute="leading" secondItem="TKC-Dv-0QY" secondAttribute="leading" id="rka-gY-CNo"/>
+                            <constraint firstItem="zuy-ha-zMY" firstAttribute="top" secondItem="TKC-Dv-0QY" secondAttribute="top" id="ucK-eh-pNz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TKC-Dv-0QY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="AfB-T2-kY3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEj-I1-JBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,4 +100,7 @@
     <resources>
         <image name="tag.circle" catalog="system" width="64" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fbb-PI-mxR"/>
+    </inferredMetricsTieBreakers>
 </document>
