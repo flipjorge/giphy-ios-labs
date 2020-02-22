@@ -12,6 +12,7 @@
 		2713926D23F9F9930087F99B /* GiphyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713926C23F9F9930087F99B /* GiphyModel.swift */; };
 		2713927023FA0EA70087F99B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713926F23FA0EA70087F99B /* Keys.swift */; };
 		2745464623FA370D0000FB86 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 2745464523FA370D0000FB86 /* SwiftyGif */; };
+		275C64622401D809006EC9D9 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C64612401D809006EC9D9 /* TagsViewController.swift */; };
 		27D83BB623F8ABEA00DC0FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB523F8ABEA00DC0FC7 /* AppDelegate.swift */; };
 		27D83BB823F8ABEA00DC0FC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB723F8ABEA00DC0FC7 /* SceneDelegate.swift */; };
 		27D83BBA23F8ABEA00DC0FC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D83BB923F8ABEA00DC0FC7 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		2713926723F9D05B0087F99B /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		2713926C23F9F9930087F99B /* GiphyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyModel.swift; sourceTree = "<group>"; };
 		2713926F23FA0EA70087F99B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		275C64612401D809006EC9D9 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		27D83BB223F8ABEA00DC0FC7 /* giphy-ios-labs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "giphy-ios-labs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D83BB523F8ABEA00DC0FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D83BB723F8ABEA00DC0FC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		275C64602401D7CE006EC9D9 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				275C64612401D809006EC9D9 /* TagsViewController.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
 		27D83BA923F8ABEA00DC0FC7 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		27D83BB423F8ABEA00DC0FC7 /* giphy-ios-labs */ = {
 			isa = PBXGroup;
 			children = (
+				275C64602401D7CE006EC9D9 /* Tags */,
 				2713926B23F9F9710087F99B /* Model */,
 				27D83BB523F8ABEA00DC0FC7 /* AppDelegate.swift */,
 				27D83BB723F8ABEA00DC0FC7 /* SceneDelegate.swift */,
@@ -173,6 +184,7 @@
 				27D83BB623F8ABEA00DC0FC7 /* AppDelegate.swift in Sources */,
 				27D83BB823F8ABEA00DC0FC7 /* SceneDelegate.swift in Sources */,
 				2713927023FA0EA70087F99B /* Keys.swift in Sources */,
+				275C64622401D809006EC9D9 /* TagsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
