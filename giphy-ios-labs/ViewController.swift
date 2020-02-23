@@ -28,23 +28,33 @@ class ViewController: UIViewController
         }
         
         //refresh
-        _refreshImage(withKey: _giphyKey!)
+        _refreshImage(withKey: _giphyKey!, tags: tags)
     }
 
     
     //MARK: Giphy Key
-    private var _giphyKey : String?
+    private var _giphyKey: String?
     
     
     //MARK: Image
     @IBOutlet var imageView: UIImageView!
     
-    private func _refreshImage(withKey key : String) -> Void
+    private func _refreshImage(withKey key: String, tags: String?) -> Void
     {
         //request random gif
         let urlSession = URLSession.shared
-        let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=\(key)&tag=&rating=G")
-        urlSession.dataTask(with: url!) { data, response, error in
+        
+        guard let encodedURLString = "https://api.giphy.com/v1/gifs/random?api_key=\(key)&tag=\(tags ?? "")&rating=G".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
+            print("Error encoding url string")
+            return
+        }
+        
+        guard let url = URL(string: encodedURLString) else {
+            print("Error creating URL")
+            return
+        }
+        
+        urlSession.dataTask(with: url) { data, response, error in
             
             //check error
             if error != nil {
@@ -101,7 +111,7 @@ class ViewController: UIViewController
             return
         }
         
-        _refreshImage(withKey: key)
+        _refreshImage(withKey: key, tags: tags)
     }
     
     
@@ -127,7 +137,7 @@ class ViewController: UIViewController
             return
         }
         
-        _refreshImage(withKey: key)
+        _refreshImage(withKey: key, tags: tags)
     }
     
     
