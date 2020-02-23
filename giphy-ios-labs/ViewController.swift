@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyGif
+import Combine
 
 class ViewController: UIViewController
 {
@@ -39,8 +40,14 @@ class ViewController: UIViewController
     //MARK: Image
     @IBOutlet var imageView: UIImageView!
     
+    private var _currentDataTask : AnyCancellable?
+    
     private func _refreshImage(withKey key: String, tags: String?) -> Void
     {
+        //cancels current task if exists
+        _currentDataTask?.cancel()
+        _currentDataTask = nil
+        
         //request random gif
         let urlSession = URLSession.shared
         
@@ -54,37 +61,43 @@ class ViewController: UIViewController
             return
         }
         
-        urlSession.dataTask(with: url) { data, response, error in
-            
-            //check error
-            if error != nil {
-                print(error!)
-                return
-            }
-            
+        enum HTTPError: LocalizedError
+        {
+            case statusCode
+            case mimeType
+        }
+        
+        _currentDataTask = urlSession.dataTaskPublisher(for: url).tryMap { output in
             //check response
-            guard let httpResponse = response as? HTTPURLResponse,
+            guard let httpResponse = output.response as? HTTPURLResponse,
                 httpResponse.statusCode == 200 else {
                 print("Status code for respose != 200")
-                return
+                throw HTTPError.statusCode
             }
             
             guard let mime = httpResponse.mimeType, mime == "application/json" else {
                 print("Not returning a json")
-                return
+                throw HTTPError.mimeType
             }
             
-            //parse data
-            let decoder = JSONDecoder()
-            
-            guard let giphyRandomData = try? decoder.decode(GiphyRandom.self, from: data!) else {
-                print("Error parsing data")
-                return
+            return output.data
+        }
+        .decode(type: GiphyRandom.self, decoder: JSONDecoder())
+        .eraseToAnyPublisher()
+        .sink(receiveCompletion: { completion in
+            switch(completion)
+            {
+            case .finished:
+                break
+            case .failure(let error):
+                fatalError(error.localizedDescription)
             }
-            
+            //
+            self._currentDataTask = nil
+        }, receiveValue: { value in
             //load and show image
             DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-                guard let imageData = try? Data(contentsOf: URL(string: giphyRandomData.data.images.downsized_large.url)!) else {
+                guard let imageData = try? Data(contentsOf: URL(string: value.data.images.downsized_large.url)!) else {
                     print ("Some error getting image data")
                     return
                 }
@@ -98,8 +111,7 @@ class ViewController: UIViewController
                     self?.imageView.setGifImage(image)
                 }
             }
-            
-        }.resume()
+        })
     }
     
     
