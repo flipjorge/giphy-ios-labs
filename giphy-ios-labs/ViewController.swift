@@ -120,6 +120,14 @@ class ViewController: UIViewController
         }
         
         tags = tagsViewController.tags
+        
+        //refresh
+        guard let key = _giphyKey else {
+            print("Giphy Key is required")
+            return
+        }
+        
+        _refreshImage(withKey: key)
     }
     
     
