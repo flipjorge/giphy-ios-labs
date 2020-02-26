@@ -26,9 +26,8 @@
                                     <action selector="_buttonTouchedUpInside" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5L-qi-w1Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lak-vP-5nQ" userLabel="Tags Button">
-                                <rect key="frame" x="354" y="822" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lak-vP-5nQ" userLabel="Tags Button">
+                                <rect key="frame" x="369" y="838" width="25" height="24"/>
                                 <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="tag.circle" catalog="system">
                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,14 +43,24 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap anywhere to refresh the image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeD-5j-wTz">
+                                <rect key="frame" x="74.5" y="839.5" width="265" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DdP-oo-CIO">
-                                <rect key="frame" x="197" y="815" width="20" height="37"/>
+                                <rect key="frame" x="197" y="764" width="20" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="aeD-5j-wTz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4aG-qM-NJQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DdP-oo-CIO" secondAttribute="trailing" constant="197" id="ErU-Qf-dcr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DdP-oo-CIO" secondAttribute="bottom" constant="10" id="ghi-LL-JkR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lak-vP-5nQ" secondAttribute="trailing" constant="20" id="H48-Pi-09P"/>
+                            <constraint firstItem="aeD-5j-wTz" firstAttribute="centerY" secondItem="Lak-vP-5nQ" secondAttribute="centerY" id="S1Q-Rc-Vhg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DdP-oo-CIO" secondAttribute="bottom" constant="61" id="ghi-LL-JkR"/>
+                            <constraint firstItem="Lak-vP-5nQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jLb-LK-Rxq"/>
                             <constraint firstItem="DdP-oo-CIO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="197" id="k9g-CZ-Y2O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

@@ -92,7 +92,7 @@ class ViewController: UIViewController
             case .finished:
                 break
             case .failure(let error):
-                fatalError(error.localizedDescription)
+                print(error.localizedDescription)
             }
             //
             self._currentDataTask = nil
