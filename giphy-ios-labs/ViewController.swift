@@ -17,6 +17,9 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         
+        //getting tags
+        tags = UserDefaults.standard.string(forKey: tagsKey)
+        
         //getting GIPHY Key
         do {
             _giphyKey = try Keys.shared.getKey(for: .giphy)
@@ -132,6 +135,7 @@ class ViewController: UIViewController
     
     //MARK: Tags
     var tags:String?
+    let tagsKey:String = "tags"
     
     @IBAction func tagsCancel(_ segue: UIStoryboardSegue)
     {
@@ -145,6 +149,9 @@ class ViewController: UIViewController
         }
         
         tags = tagsViewController.tags
+        
+        //saves tags persistently
+        UserDefaults.standard.set(tags, forKey: tagsKey)
         
         //refresh
         guard let key = _giphyKey else {
