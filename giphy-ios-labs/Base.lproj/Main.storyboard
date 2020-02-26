@@ -44,12 +44,21 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DdP-oo-CIO">
+                                <rect key="frame" x="197" y="815" width="20" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DdP-oo-CIO" secondAttribute="trailing" constant="197" id="ErU-Qf-dcr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DdP-oo-CIO" secondAttribute="bottom" constant="10" id="ghi-LL-JkR"/>
+                            <constraint firstItem="DdP-oo-CIO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="197" id="k9g-CZ-Y2O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="v9G-yb-8Mp" id="ss3-XH-ieg"/>
+                        <outlet property="loaderView" destination="DdP-oo-CIO" id="FVk-Fn-LVi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

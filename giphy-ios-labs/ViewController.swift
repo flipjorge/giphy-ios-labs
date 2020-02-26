@@ -67,6 +67,8 @@ class ViewController: UIViewController
             case mimeType
         }
         
+        loaderView.startAnimating()
+        
         _currentDataTask = urlSession.dataTaskPublisher(for: url).tryMap { output in
             //check response
             guard let httpResponse = output.response as? HTTPURLResponse,
@@ -109,6 +111,7 @@ class ViewController: UIViewController
                     }
                     
                     self?.imageView.setGifImage(image)
+                    self?.loaderView.stopAnimating()
                 }
             }
         })
@@ -161,5 +164,9 @@ class ViewController: UIViewController
         
         tagsViewController.tags = tags
     }
+    
+    
+    //MARK: Loader
+    @IBOutlet weak var loaderView: UIActivityIndicatorView!
     
 }
